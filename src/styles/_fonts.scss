@@ -1,0 +1,105 @@
+/* FONTS */
+
+//MyriadPro*******************
+
+@font-face {
+    font-family: MyriadPro;
+    src: 
+    url('/assets/fonts/MyriadPro/MYRIADPRO-REGULAR.OTF')   
+}
+
+@font-face {
+  font-family: MyriadPro;
+  src: url('/assets/fonts/MyriadPro/Myriad Pro Light Condensed.otf');
+  font-weight: 100;
+  font-stretch: condensed;
+}
+
+@font-face {
+  font-family: MyriadPro;
+  src: url('/assets/fonts/MyriadPro/MYRIADPRO-COND.OTF');
+  font-weight: normal;
+  font-stretch: condensed;
+}
+
+@font-face {
+  font-family: MyriadPro;
+  src: url('/assets/fonts/MyriadPro/Myriad Pro Semibold Condensed.otf');
+  font-weight: 500;
+  font-stretch: condensed;
+}
+
+@font-face {
+  font-family: MyriadPro;
+  src: url('/assets/fonts/MyriadPro/Myriad-Pro-Bold.otf');
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: MyriadPro;
+  src: url('/assets/fonts/MyriadPro/Myriad Pro Light.otf');
+  font-weight: 100;
+}
+
+//TrebuchetMS*******************
+
+@font-face {
+    font-family: TrebuchetMS;
+    src: 
+    url('/assets/fonts/TrebuchetMS/TREBUC.otf')   
+}
+
+
+
+@font-face {
+  font-family: TrebuchetMS;
+  src: url('/assets/fonts/TrebuchetMS/TREBUCBD.otf');
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: TrebuchetMS;
+  src: url('/assets/fonts/TrebuchetMS/TREBUCBI.otf');
+  font-style: italic;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: TrebuchetMS;
+  src: url('/assets/fonts/TrebuchetMS/TREBUCIT.otf');
+  font-style: italic;
+  font-weight: normal;
+}
+
+//Poppins*******************
+
+@font-face {
+    font-family: Poppins;
+    src: url('/assets/fonts/Poppins/Poppins-Regular.ttf');
+    font-weight: 400;   
+}
+
+@font-face {
+    font-family: Poppins;
+    src: url('/assets/fonts/Poppins/Poppins-ExtraLight.ttf');
+    font-weight: 100;   
+}
+
+@font-face {
+    font-family: Poppins;
+    src: url('/assets/fonts/Poppins/Poppins-Light.ttf');
+    font-weight: 300;   
+}
+
+@font-face {
+    font-family: Poppins;
+    src: url('/assets/fonts/Poppins/Poppins-SemiBold.ttf');
+    font-weight: 500;   
+}
+
+@font-face {
+    font-family: Poppins;
+    src: url('/assets/fonts/Poppins/Poppins-Black.ttf');
+    font-weight: 900;   
+}
+

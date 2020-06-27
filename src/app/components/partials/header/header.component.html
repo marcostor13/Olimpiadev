@@ -1,0 +1,21 @@
+<header class="shadow">   
+
+    <div class="m-0 row justify-content-between p-4">
+        <img class="cursor logo ml-2" src="/assets/img/logo.svg" alt="Olimpiadev">   
+        <div class="d-none d-xl-flex cursor justify-content-center align-items-center mr-3">
+            <span class="mr-3 text-color1 font-900 mt-1 f-14">SALIR</span>
+            <i class="pi pi-sign-out text-color1 font-900"></i>        
+        </div>
+        <div  class="d-flex d-xl-none cursor justify-content-center align-items-center mr-3">
+            <div (click)="toogleMenu()" class="menu d-flex justify-content-between align-items-center flex-column">             
+                <label></label>
+                <label></label>
+            </div>
+        </div>
+    </div>        
+
+    <div class="d-block d-xl-none">
+        <app-menu *ngIf="menuHeader"></app-menu>    
+    </div>
+    
+</header>

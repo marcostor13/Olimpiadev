@@ -1,0 +1,66 @@
+<div class="container-fluid bg-color1 vw-100 vh-100 pt-5">
+
+    <div class="row justify-content-center p-1 p-xl-5 pt-5">
+        <div class="row col-12 col-xl-6 mt-5 justify-content-center">
+            <div class="col-12 row justify-content-center">
+                <img class="logo" src="/assets/img/logo-b.svg" alt="Olimpiadev">
+            </div>
+
+            <div class="col-12 row justify-content-center">
+                <h1 class="h3 text-white mt-5">BIENVENIDO!</h1>
+                <p class="col-12 h5 text-white mt-3 text-center font-100">Regístrate para una nueva experiencia!</p>
+            </div>
+
+            <form class="row justify-content-center col-12 mt-5" (ngSubmit)="onRegister()" [formGroup]="form">
+                <div class="row">
+                    <div class="col-12">
+                        <input class="col-12" type="text" placeholder="Nombre" formControlName="name" required [class.is-invalid]="email.touched && email.invalid">
+                        <div class="mt-2" *ngIf="name.invalid && (name.dirty || name.touched)">
+                            <small class="text-color2" *ngIf="name.errors.required">Campo requerido</small>
+                        </div>
+                    </div>
+                    <div class="col-12 mt-3">
+                        <input class="col-12" type="email" placeholder="Correo" formControlName="email" required >
+                        <div class="mt-2" *ngIf="email.invalid && (email.dirty || email.touched)">
+                            <small class="text-color2" *ngIf="email.errors.required">Campo requerido</small>
+                            <small class="text-color2" *ngIf="email.errors.email">Ingrese correctamente el email</small>
+                        </div>
+                    </div>
+                    <div class="col-12 mt-3">
+                        <input class="col-12" type="password" placeholder="Contraseña" formControlName="password" required >
+                        <div class="mt-2" *ngIf="password.invalid && (password.dirty || password.touched)">
+                            <small class="text-color2" *ngIf="password.errors.required">Campo requerido</small>
+                            <small class="text-color2" *ngIf="password.errors.minlength">Mínino 8 caracteres</small>
+                        </div>
+                    </div>
+
+                    <div class="col-12 mt-3">
+                        <input class="col-12" type="password" placeholder="Contraseña" formControlName="repassword" required>
+                        <div class="mt-2" *ngIf="repassword.invalid && (repassword.dirty || repassword.touched)">
+                            <small class="text-color2" *ngIf="repassword.errors.required">Campo requerido</small>
+                            <small class="text-color2" *ngIf="repassword.errors.minlength">Mínino 8 caracteres</small>
+                        </div>
+                    </div>    
+                    
+                    <div class="col-12 mt-3">                       
+                        <button class="col-12 mt-3">REGISTRARSE</button>
+                    </div>
+                </div>
+            </form>
+
+            <div class="row justify-content-center col-12 mt-3">
+                <span class="text-white">{{response}}</span> 
+            </div>
+
+        </div>
+        
+    </div>
+
+
+
+</div>
+
+
+<div *ngIf="isLoad" class="load">
+    <img src="/assets/img/load.svg">
+</div>

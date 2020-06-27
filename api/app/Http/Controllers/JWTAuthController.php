@@ -27,6 +27,14 @@ class JWTAuthController extends Controller
      */
     public function register(Request $request)
     {
+
+        if(User::where('email', $request->email)->first()){
+            return response()->json([
+                'message' => 'El usuario ya existe',                
+                'status' => 301                
+            ], 201); 
+        }
+
         $validator = Validator::make($request->all(), [
             'name' => 'required|between:2,100',
             'email' => 'required|email|unique:users|max:50',
@@ -63,8 +71,10 @@ class JWTAuthController extends Controller
         if (! $token = auth()->attempt($validator->validated())) {
             return response()->json(['error' => 'Unauthorized'], 401);
         }
-
-        return $this->createNewToken($token);
+        $user = [];
+        $user['user'] =  $this->profile();
+        $user['token'] = $this->createNewToken($token);
+        return $user;
     }
 
     /**

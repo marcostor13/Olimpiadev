@@ -1,0 +1,33 @@
+@import '../../../../../styles/variables';
+
+.logo{
+    max-width: 300px;
+}
+
+input{
+    background-color: rgba($color: #000000, $alpha: 0);
+    border: solid 2px white;
+    min-height: 50px;
+    color: white;
+}
+::placeholder{
+    color: white
+}
+
+button{
+    background-color: rgba($color: #000000, $alpha: 0);
+    border: solid 2px white;
+    min-height: 50px;
+    color: white;
+}
+
+button:hover{
+    background-color: rgba($color: #FFFFFF, $alpha: 1);    
+    min-height: 50px;
+    color: $color1;
+}
+
+:focus{
+    outline: none;
+}
+
