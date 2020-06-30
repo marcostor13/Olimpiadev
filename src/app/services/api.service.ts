@@ -9,8 +9,8 @@ export class ApiService {
   url: string = ''; // disponer url de su servidor que tiene las páginas PHP
 
   constructor(private http: HttpClient) {
-    if (window.location.href.indexOf('35.238.14.128') > -1 || window.location.href.indexOf('olimpiadev' ) > -1) {
-      this.url = 'http://olimpiadev.tk/api/';
+    if (window.location.href.indexOf('146.148.56.105') > -1 || window.location.href.indexOf('olimpiadev' ) > -1) {
+      this.url = 'http://api.olimpiadev.tk/api/';
     } else {
       this.url = 'http://localhost:8000/api/';
     }
