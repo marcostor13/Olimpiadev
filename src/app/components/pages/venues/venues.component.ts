@@ -15,6 +15,7 @@ export class VenuesComponent implements OnInit {
   user: any
   dataModal = {}
   venues:any = []
+  responsiveOptions: any []
 
   //Events to child modal
 
@@ -23,6 +24,14 @@ export class VenuesComponent implements OnInit {
 
   constructor(private router: Router, private api: ApiService, private general: GeneralService) {
     this.user = this.general.validateSession()
+
+    this.responsiveOptions = [
+      {
+        breakpoint: '600px',
+        numVisible: 1,
+        numScroll: 1
+      }
+    ];
    }
 
   ngOnInit(): void {
