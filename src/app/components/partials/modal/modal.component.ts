@@ -89,7 +89,7 @@ export class ModalComponent implements OnInit {
   }
 
   getInputsValues(){
-    this.api.c('getInputsValues', this.data)
+
     if (this.data.data){
       switch (this.data.type) {
         case 'venues':
