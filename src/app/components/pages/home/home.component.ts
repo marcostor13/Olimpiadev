@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ApiService } from 'src/app/services/api.service';
+import { GeneralService } from 'src/app/services/general.service';
 
 @Component({
   selector: 'app-home',
@@ -13,22 +14,13 @@ export class HomeComponent implements OnInit {
   user: any; 
 
 
-  constructor(private router: Router, private api: ApiService) {
-    this.validateSession()
+  constructor(private router: Router, private api: ApiService, private general: GeneralService) {
+    this.user = this.general.validateSession()
    }
 
   ngOnInit(): void {
   }
-
-  validateSession() {
-    if (!sessionStorage.getItem('ud') || sessionStorage.getItem('ud') == '') {
-      this.router.navigate(['/login'])
-    }else{
-      this.user = JSON.parse(sessionStorage.getItem('ud'))
-      this.api.c('validateSession', this.user.token.original.access_token)
-      this.api.c('validateSession', this.user.user.original.name)
-    }
-  }
+ 
 
   onLogin() {
     this.isLoad = true

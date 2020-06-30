@@ -227,19 +227,29 @@ body, .home, footer{
 .btn1{
     background-color: $color2;
     color: white;
-    border-radius: 20px;
     font-size: 11.44pt;   
     border: none;
     min-width: 100px;
-}    
+}
+
+.btn1:hover{
+    background-color: rgba($color: #000000, $alpha: 0);
+    color: $color2;
+    border: 2px solid $color2;
+}
 
 .btn2{
-    background-color: rgba($color: #000000, $alpha: 0.0);
-    color: black;
-    border-radius: 20px;
+    background-color: $color1;
+    color: white;  
     font-size: 11.44pt;   
     border: none;
     min-width: 100px;    
+}
+
+.btn2:hover{
+    background-color: rgba($color: #000000, $alpha: 0);
+    color: $color1;
+    border: 2px solid $color1;
 }
 
 .btn3{
@@ -400,3 +410,14 @@ body, .home, footer{
     z-index: 1000;    
 }
 
+//Containers 
+
+.menu-container, .container-container{
+    min-height: 100vh-7.4;
+}
+
+
+
+:focus{
+    outline: none !important;
+}

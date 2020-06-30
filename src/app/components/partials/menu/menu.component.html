@@ -1,36 +1,36 @@
 <div>
     <ul class="list-unstyled col-12 m-0 bg-color1 p-0">
-        <li class="cursor pl-5 p-3 text-white">
+        <!-- <li class="cursor pl-5 p-3 text-white" [routerLink]="['/']">
             <i class="pi pi-chart-bar"></i>
-            <label class="ml-4">Panel</label>
-        </li>
-        <li class="cursor pl-5 p-3 text-white">
-            <i class="pi pi-calendar"></i>
-            <label class="ml-4">Eventos</label>
-        </li>
-        <li class="cursor pl-5 p-3 text-white">
+            <label class="cursor ml-4">Panel</label>
+        </li> -->
+        <li class="cursor pl-5 p-3 text-white" [routerLink]="['/venues']" [ngClass]="{'active': path == '/' || path == '/venues' }">
             <i class="pi pi-bookmark"></i>
-            <label class="ml-4">Sedes</label>
+            <label class="cursor ml-4">Sedes</label>
         </li>
-        <li class="cursor pl-5 p-3 text-white">
+        <li class="cursor pl-5 p-3 text-white" [routerLink]="['/events']" [ngClass]="{'active': path == '/events' }" >
+            <i class="pi pi-calendar"></i>
+            <label class="cursor ml-4">Eventos</label>
+        </li>
+        <li class="cursor pl-5 p-3 text-white" [routerLink]="['/complexes']" [ngClass]="{'active': path == '/complexes' }" >
             <i class="pi pi-microsoft"></i>
-            <label class="ml-4">Complejos</label>
+            <label class="cursor ml-4">Complejos</label>
         </li>
-        <li class="cursor pl-5 p-3 text-white">
+        <li class="cursor pl-5 p-3 text-white" [routerLink]="['/areas']" [ngClass]="{'active': path == '/areas' }" >
             <i class="pi pi-table"></i>
-            <label class="ml-4">Áreas</label>
+            <label class="cursor ml-4">Áreas</label>
         </li>        
-        <li class="cursor pl-5 p-3 text-white">
+        <li class="cursor pl-5 p-3 text-white" [routerLink]="['/equipment']" [ngClass]="{'active': path == '/equipment' }" >
             <i class="pi pi-compass"></i>
-            <label class="ml-4">Equipamiento</label>
+            <label class="cursor ml-4">Equipos</label>
         </li>
-        <li class="cursor pl-5 p-3 text-white">
+        <li class="cursor pl-5 p-3 text-white" [routerLink]="['/commissars']" [ngClass]="{'active': path == '/commissars' }" >
             <i class="pi pi-user"></i>
-            <label class="ml-4">Comisarios</label>
+            <label class="cursor ml-4">Comisarios</label>
         </li>
-        <li class="cursor pl-5 p-3 text-white">
+        <li class="cursor pl-5 p-3 text-white" [routerLink]="['/sports']" [ngClass]="{'active': path == '/sports' }" >
             <i class="pi pi-circle-on"></i>
-            <label class="ml-4">Deportes</label>
+            <label class="cursor ml-4">Deportes</label>
         </li>
         
     </ul>

@@ -1,0 +1,44 @@
+<app-header [user]="user"></app-header>
+<div class="row">
+    <div class="d-none d-xl-block menu-container col-3 col-xl-2 bg-color1 p-0 m-0 pt-5">
+        <app-menu></app-menu>
+    </div>
+
+    <div class="container-container flex-1 bg-color5 p-5">
+        <div class="row m-0 justify-content-between align-items-center">
+            <h1 class="text-color2 h4">Sedes Olímpicas</h1>
+            <div>
+                <button (click)="onAddClick()" class="btn1 p-3 d-flex justify-content-center align-items-center cursor">
+                    <i class="pi pi-plus mr-3"></i>
+                    <span class="p-0 m-0">Agregar</span>
+                </button>
+            </div>
+        </div>
+        <div class="row m-0 justify-content-center mt-4">
+            
+            <p-carousel [value]="venues" [ngStyle]="{'min-width': '70vw', 'max-width': '70vw'}" [numVisible]="3" [numScroll]="1" [circular]="true" [autoplayInterval]="6000">                
+                <ng-template let-venue pTemplate="item">
+                    <div class="row flex-column align-items-center bg-white shadow p-4 m-2 justify-content-center">
+                        <div>
+                            <i class="pi pi-bookmark text-color1"></i>
+                        </div>
+                        <div class="mt-2">
+                            <h2 class="text-color1">{{venue.name}}</h2>
+                        </div>
+                        <div>
+                            <p class="text-center text-color6">Año {{venue.year}}</p>
+                            <p class="text-center text-color2 f-16">USD {{venue.cost}}</p>
+                        </div>
+                        <div>
+                            <button (click)="onEditClick(venue.id)" class="btn1">Editar</button>
+                        </div>
+                    </div>
+                </ng-template>
+            </p-carousel>
+        </div>
+    </div>
+
+    
+</div>
+
+<app-modal *ngIf="isVisibleModal" [data]='dataModal' (event)="dataOutputChild($event)" [events]="eventsSubject.asObservable()"></app-modal>

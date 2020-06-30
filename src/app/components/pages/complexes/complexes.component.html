@@ -1,0 +1,45 @@
+<app-header [user]="user"></app-header>
+<div class="row">
+    <div class="d-none d-xl-block menu-container col-3 col-xl-2 bg-color1 p-0 m-0 pt-5">
+        <app-menu></app-menu>
+    </div>
+
+    <div class="container-container flex-1 bg-color5 p-5">
+        <div class="row m-0 justify-content-between align-items-center">
+            <h1 class="text-color2 h4">Complejos</h1>
+            <div>
+                <button (click)="onAddClick()" class="btn1 p-3 d-flex justify-content-center align-items-center cursor">
+                    <i class="pi pi-plus mr-3"></i>
+                    <span class="p-0 m-0">Agregar</span>
+                </button>
+            </div>
+        </div>
+        <div class="row m-0 justify-content-center mt-4">
+            
+            <div *ngFor="let complex of complexes" class="shadow border-0 card col-12 col-xl-3 m-2">                
+                <div class="card-body">
+                    <h5 class="card-title">{{complex.name}}</h5>
+                    <div class="row">
+                        <div class="col-12">
+                            <span>Tipo : </span><span>{{complex.venue}}</span>
+                        </div>
+                        <div class="col-12">
+                            <span>Sede : </span><span>{{complex.type == 1 ? 'Simple': 'Polideportivo'}}</span>
+                        </div>
+                        <div class="col-12">
+                            <span>Año : </span><span>{{complex.year}}</span>
+                        </div>
+                    </div>
+                    <button (click)="onEditClick(complex.id)" class="btn1 p-2 mt-3">Editar</button>                   
+                </div>
+            </div>
+           
+        </div>
+    </div>
+
+    
+</div>
+
+
+
+<app-modal *ngIf="isVisibleModal" [data]='dataModal' (event)="dataOutputChild($event)" [events]="eventsSubject.asObservable()"></app-modal>

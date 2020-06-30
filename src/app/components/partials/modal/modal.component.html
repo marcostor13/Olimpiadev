@@ -1,0 +1,225 @@
+<div class="modal-div d-flex justify-content-center align-items-center vw-100 vh-100">
+    
+    <div class="modal-container bg-white p-2 pt-5 pb-5 p-xl-5">
+        
+        <div class="row m-0 justify-content-between pl-4 pr-4">
+            <h5 class="text-color1">{{data.title}}</h5>
+            <i (click)="closeModal()" class="pi pi-times text-color1 font-900 cursor"></i>
+        </div>
+
+        <div class="row m-0 justify-content-center mt-4">
+
+            <ng-container [ngSwitch]="data.type">
+                <ng-container *ngSwitchCase="'venues'">
+                    <div class="row col-12 justify-content-center align-items-center">
+                        <input class="col-12 mt-3" type="text" placeholder="Nombre" [(ngModel)]="name">
+                        <input class="col-12 mt-3" type="text" placeholder="Año" [(ngModel)]="year">
+                        <input class="col-12 mt-3" type="text" placeholder="Presupuesto USD" [(ngModel)]="cost">
+                        <button *ngIf="data.data" (click)="sendDataToParent({event:'edit-venue', name: name, year: year, cost: cost, venueid: data.data.id})" class="col-12 btn2 mt-3">Editar</button>
+                        <button *ngIf="!data.data" (click)="sendDataToParent({event:'add-venue', name: name, year: year, cost: cost})" class="col-12 btn2 mt-3">Agregar</button>
+                        <div *ngIf="isLoad" class="mt-3 col-12 row m-0 justify-content-center">
+                            <i class="pi pi-spin pi-spinner" [ngStyle]="{'font-size': '2em', 'color': '#4238d8'}"></i>
+                        </div>
+                        <div class="col-12">
+                            <p class="text-color2 mt-3 text-center">{{response}}</p>
+                        </div>
+                    </div>
+                </ng-container>
+
+                <ng-container *ngSwitchCase="'complexes'">
+                    <div class="row col-12 justify-content-center align-items-center">
+                        <input class="col-12 mt-3" type="text" placeholder="Nombre" [(ngModel)]="name">                      
+                        <select class="col-12 mt-3" [(ngModel)]="typeComplex">
+                            <option value="">Seleccione el tipo</option>
+                            <option value="1">Simple</option>
+                            <option value="2">Polideportivo</option>
+                        </select>    
+                        <select class="col-12 mt-3" [(ngModel)]="venueid">
+                            <option value="">Seleccione una sede</option>
+                            <option *ngFor="let venue of venues" value="{{venue.id}}">{{venue.name}}</option>
+                        </select>                        
+                        <button *ngIf="data.data" (click)="sendDataToParent({event:'edit-complex', name: name, venueid: venueid, typeComplex: typeComplex, complexid: data.data.id})" class="col-12 btn2 mt-3">Editar</button>
+                        <button *ngIf="!data.data" (click)="sendDataToParent({event:'add-complex', name: name, venueid: venueid, typeComplex: typeComplex})" class="col-12 btn2 mt-3">Agregar</button>
+                        <div *ngIf="isLoad" class="mt-3 col-12 row m-0 justify-content-center">
+                            <i class="pi pi-spin pi-spinner" [ngStyle]="{'font-size': '2em', 'color': '#4238d8'}"></i>
+                        </div>
+                        <div class="col-12">
+                            <p class="text-color2 mt-3 text-center">{{response}}</p>
+                        </div>
+                    </div>
+                </ng-container>
+
+                <ng-container *ngSwitchCase="'sports'">
+                    <div class="row col-12 justify-content-center align-items-center">
+                        <input class="col-12 mt-3" type="text" placeholder="Nombre" [(ngModel)]="name">                    
+                        
+                        <button *ngIf="data.data" (click)="sendDataToParent({event:'edit-sport', name: name, sportid: data.data.id})" class="col-12 btn2 mt-3">Editar</button>
+                        <button *ngIf="!data.data" (click)="sendDataToParent({event:'add-sport', name: name})" class="col-12 btn2 mt-3">Agregar</button>
+                        <div *ngIf="isLoad" class="mt-3 col-12 row m-0 justify-content-center">
+                            <i class="pi pi-spin pi-spinner" [ngStyle]="{'font-size': '2em', 'color': '#4238d8'}"></i>
+                        </div>
+                        <div class="col-12">
+                            <p class="text-color2 mt-3 text-center">{{response}}</p>
+                        </div>
+                    </div>
+                </ng-container>
+
+                <ng-container *ngSwitchCase="'areas'">
+                    <div class="row col-12 justify-content-center align-items-center">
+                        <input class="col-12 mt-3" type="text" placeholder="Nombre" [(ngModel)]="name">
+                        <select class="col-12 mt-3" [(ngModel)]="complexid">
+                            <option value="">Seleccione un complejo</option>
+                            <option *ngFor="let complex of complexes" value="{{complex.id}}">{{complex.name}}</option>
+                        </select>
+                        <select class="col-12 mt-3" [(ngModel)]="sportid">
+                            <option value="">Seleccione un deporte</option>
+                            <option *ngFor="let sport of sports" value="{{sport.id}}">{{sport.name}}</option>
+                        </select>
+                        <input class="col-12 mt-3" type="text" placeholder="Jéfe de Organización" [(ngModel)]="manager">
+                        <input class="col-12 mt-3" type="text" placeholder="Área Total" [(ngModel)]="totalarea">
+                        <select class="col-12 mt-3" [(ngModel)]="ubication">
+                            <option value="">Seleccione la Ubicación</option>
+                            <option value="Centro">Centro</option>
+                            <option value="Noreste">Noreste</option>
+                            <option value="Noroeste">Noroeste</option>
+                            <option value="Sureste">Sureste</option>
+                            <option value="Suroeste">Suroeste</option>
+                        </select>
+                        <button *ngIf="data.data" (click)="sendDataToParent({event:'edit-area', name: name, complexid: complexid, sportid: sportid, manager: manager, totalarea: totalarea, ubication: ubication, areaid: data.data.id})" class="col-12 btn2 mt-3">Editar</button>
+                        <button *ngIf="!data.data" (click)="sendDataToParent({event:'add-area', name: name, complexid: complexid, sportid: sportid, manager: manager, totalarea: totalarea, ubication: ubication })" class="col-12 btn2 mt-3">Agregar</button>
+                        <div *ngIf="isLoad" class="mt-3 col-12 row m-0 justify-content-center">
+                            <i class="pi pi-spin pi-spinner" [ngStyle]="{'font-size': '2em', 'color': '#4238d8'}"></i>
+                        </div>
+                        <div class="col-12">
+                            <p class="text-color2 mt-3 text-center">{{response}}</p>
+                        </div>
+                    </div>
+                </ng-container>
+
+
+                <ng-container *ngSwitchCase="'commissars'">
+                    <div class="row col-12 justify-content-center align-items-center">
+                        <input class="col-12 mt-3" type="text" placeholder="Nombre" [(ngModel)]="name">   
+                        <button *ngIf="data.data" (click)="sendDataToParent({event:'edit-commissar', name: name, commissarid: data.data.id})" class="col-12 btn2 mt-3">Editar</button>
+                        <button *ngIf="!data.data" (click)="sendDataToParent({event:'add-commissar', name: name})" class="col-12 btn2 mt-3">Agregar</button>
+                        <div *ngIf="isLoad" class="mt-3 col-12 row m-0 justify-content-center">
+                            <i class="pi pi-spin pi-spinner" [ngStyle]="{'font-size': '2em', 'color': '#4238d8'}"></i>
+                        </div>
+                        <div class="col-12">
+                            <p class="text-color2 mt-3 text-center">{{response}}</p>
+                        </div>
+                    </div>
+                </ng-container>
+
+                <ng-container *ngSwitchCase="'commissars-events'">
+                    <div class="row col-12 justify-content-center align-items-center">
+                        <div class="card col-12 p-0">
+                            <div class="card-header">
+                                Eventos
+                            </div>
+                            <ul class="list-group list-group-flush">
+                                <li *ngFor="let event of data.data" class="row m-0 justify-content-between align-items-center p-2 pl-4">
+                                    <span>{{event.name}}</span>                                       
+                                </li>
+                        
+                            </ul>
+                        </div>
+
+                    </div>
+                </ng-container>
+
+                <ng-container *ngSwitchCase="'equipments'">
+                    <div class="row col-12 justify-content-center align-items-center">
+                        <input class="col-12 mt-3" type="text" placeholder="Nombre" [(ngModel)]="name">                    
+                        <select class="col-12 mt-3" [(ngModel)]="eventid">
+                            <option value="">Seleccione un evento</option>
+                            <option *ngFor="let event of eventsGet" value="{{event.id}}">{{event.name}}</option>
+                        </select>
+                        <button *ngIf="data.data" (click)="sendDataToParent({event:'edit-equipment', name: name, eventid: eventid, equipmentid: data.data.id})" class="col-12 btn2 mt-3">Editar</button>
+                        <button *ngIf="!data.data" (click)="sendDataToParent({event:'add-equipment', name: name, eventid: eventid})" class="col-12 btn2 mt-3">Agregar</button>
+                        <div *ngIf="isLoad" class="mt-3 col-12 row m-0 justify-content-center">
+                            <i class="pi pi-spin pi-spinner" [ngStyle]="{'font-size': '2em', 'color': '#4238d8'}"></i>
+                        </div>
+                        <div class="col-12">
+                            <p class="text-color2 mt-3 text-center">{{response}}</p>
+                        </div>
+                    </div>
+                </ng-container>
+
+                <ng-container *ngSwitchCase="'events'">
+                    <div class="row col-12 justify-content-center align-items-center">
+                        <input class="col-12 mt-3" type="text" placeholder="Nombre" [(ngModel)]="name">                    
+                        <select class="col-12 mt-3" [(ngModel)]="complexid">
+                            <option value="">Seleccione un complejo</option>
+                            <option *ngFor="let complex of complexes" value="{{complex.id}}">{{complex.name}}</option>
+                        </select>
+                        <select class="col-12 mt-3" [(ngModel)]="sportid">
+                            <option value="">Seleccione un deporte</option>
+                            <option *ngFor="let sport of sports" value="{{sport.id}}">{{sport.name}}</option>
+                        </select>
+                        <input class="col-12 mt-3" type="date" placeholder="Fecha" [(ngModel)]="date">
+                        <input class="col-12 mt-3" type="text" placeholder="Nro de participantes" [(ngModel)]="participants">
+                        <input class="col-12 mt-3" type="text" placeholder="Duration en minutos" [(ngModel)]="duration">
+                        <button *ngIf="data.data" (click)="sendDataToParent({event:'edit-event', name: name, complexid: complexid, sportid: sportid, date: date, participants: participants, duration: duration, eventid: data.data.id})" class="col-12 btn2 mt-3">Editar</button>
+                        <button *ngIf="!data.data" (click)="sendDataToParent({event:'add-event', name: name, complexid: complexid, sportid: sportid, date: date, participants: participants, duration: duration})" class="col-12 btn2 mt-3">Agregar</button>
+                        <div *ngIf="isLoad" class="mt-3 col-12 row m-0 justify-content-center">
+                            <i class="pi pi-spin pi-spinner" [ngStyle]="{'font-size': '2em', 'color': '#4238d8'}"></i>
+                        </div>
+                        <div class="col-12">
+                            <p class="text-color2 mt-3 text-center">{{response}}</p>
+                        </div>
+                    </div>
+                </ng-container>
+
+                <ng-container *ngSwitchCase="'view-commissars'">
+                    <div class="row col-12 justify-content-center align-items-center">
+                        <div class="card col-12 p-0">
+                            <div class="card-header">
+                                Comisarios
+                            </div>
+                            <ul class="list-group list-group-flush">
+                                <li *ngFor="let commissar of data.data" class="row m-0 justify-content-between align-items-center p-2 pl-4">
+                                    <div>
+                                        <span>{{commissar.name}} : </span>                                        
+                                        <span>{{commissar.task}}</span>                                        
+                                    </div>
+                                </li>
+                
+                            </ul>
+                        </div>
+                
+                    </div>
+                </ng-container>
+
+                <ng-container *ngSwitchCase="'add-commissar'">
+                    <div class="row col-12 justify-content-center align-items-center">                 
+                        <select class="col-12 mt-3" [(ngModel)]="commissarid">
+                            <option value="">Seleccione un comisario</option>
+                            <option *ngFor="let commissar of commissars" value="{{commissar.id}}">{{commissar.name}}</option>
+                        </select>
+                        <select class="col-12 mt-3" [(ngModel)]="task">
+                            <option value="">Seleccione el rol</option>
+                            <option value="Juez">Juez</option>
+                            <option value="Observador">Observador</option>
+                        </select>
+                        <button *ngIf="!data.data" (click)="sendDataToParent({event:'add-commissar', commissarid: commissarid, eventid: eventidCommissar, task: task})" class="col-12 btn2 mt-3">Agregar</button>
+                        <div *ngIf="isLoad" class="mt-3 col-12 row m-0 justify-content-center">
+                            <i class="pi pi-spin pi-spinner" [ngStyle]="{'font-size': '2em', 'color': '#4238d8'}"></i>
+                        </div>
+                        <div class="col-12">
+                            <p class="text-color2 mt-3 text-center">{{response}}</p>
+                        </div>
+                    </div>
+                </ng-container>
+                
+                <ng-container *ngSwitchDefault>
+                
+                </ng-container>
+            </ng-container>
+            
+
+        </div>
+
+    </div>
+
+</div>

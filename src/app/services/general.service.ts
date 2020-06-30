@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
-import { element } from 'protractor';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class GeneralService {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   httpBuildQuery(params) {
     if (typeof params === 'undefined' || typeof params !== 'object') {
@@ -130,6 +130,14 @@ export class GeneralService {
     }
     return res;
 
+  }
+
+  validateSession() {
+    if (!sessionStorage.getItem('ud') || sessionStorage.getItem('ud') == '') {
+      this.router.navigate(['/login'])
+    } else {
+      return JSON.parse(sessionStorage.getItem('ud'))      
+    }
   }
 
 
