@@ -1,0 +1,201 @@
+//VARIABLES
+
+$color1 : #005699; 
+$color2 : #FC6320; 
+
+//GENERALS
+
+.bg1{
+    background-color: $color1;
+}
+.bg2{
+    background-color: $color2;
+}
+.tc1{
+    color: $color1;
+}
+.tc2{
+    color: $color2;
+}
+
+.imgcen{
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+
+// HEADER
+
+header{
+    background-image: url('/assets/img/modulo2/Grupo 1526.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    .menu{
+        label{
+            min-width: 40px;
+            min-height: 4px;
+            background-color: white;
+        }
+    }    
+}
+
+// NAV
+
+.nav{
+    ul{
+        background-color: $color1;
+        li:hover{
+            background-color: white;
+            color: $color1 !important;
+        }
+        
+        
+        .active{
+            background-color: white;
+            color: $color2;
+        }
+    }
+}
+
+
+//SECTION 1
+
+.section1{
+    position: relative;
+    .st0{
+        fill: #FFFFFF;
+        stroke: #FFFFFF;
+        stroke-miterlimit: 10;
+    }
+    .slider-btn-left{
+        height: 400px;
+        position: absolute;
+        left: 20px;
+        top:0;
+        z-index: 100;
+        cursor: pointer;
+    }
+    .slider-btn-right{
+        height: 400px;
+        position: absolute;
+        right: 20px;
+        top:0;
+        z-index: 100;
+        cursor: pointer;
+    }
+    .images-slider{
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        min-width: 100%;
+        min-height: 400px;
+    }
+
+    //CARDS
+
+    .section-cards{        
+        min-height: 130px;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        .section-cards-text{
+            min-height: 60px;
+            h5{
+                max-width: 140px;
+            }
+        }
+    }
+
+}
+
+
+//ASIDE
+
+.aside-card{
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 6px #00000029;
+    border-radius: 16px;
+    overflow: hidden;
+
+    .list-card-circle{
+        border: 2px solid $color2;
+        border-radius: 50%;
+        padding: 9px;
+    }
+}
+
+//SECTION QUIENES SOMOS
+
+.section-quienes{
+    h2{
+        font-size: 15pt !important;
+    }
+    p{
+        font-size: 11pt !important;
+        max-width: 800px;
+    }
+}
+
+
+//SECTION GALLERY
+
+.section-gallery-header{
+    min-height: 400px;
+}
+
+.aside-gallery{
+    min-height: 400px;
+}
+
+
+.img-map{
+    min-width: 100%;
+}
+
+
+
+
+
+
+
+
+
+//MEDIA QUERY
+
+@media (min-width: 1140px) {
+    .section1{
+        .section-cards{      
+            min-height: 200px;  
+            background-position: center bottom;   
+        }
+        .images-slider{
+            min-height: 630px;
+            max-height: 630px;
+        }
+        .images-slider{            
+            min-height: 630px;
+        }
+        .slider-btn-left, .slider-btn-right{
+            height: 630px;
+        }
+    }
+
+    .section-quienes{
+        h2{
+            font-size: 15pt !important;
+        }
+        p{
+            font-size: 12pt !important;
+        }
+    }  
+
+
+
+
+    //SECTION GALLERY
+
+    
+     
+}

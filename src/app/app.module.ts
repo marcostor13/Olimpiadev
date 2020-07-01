@@ -22,6 +22,16 @@ import { DialogModule } from 'primeng/dialog';
 import { ModalComponent } from './components/partials/modal/modal.component';
 import { FormsModule } from '@angular/forms';
 import { CarouselModule } from 'primeng/carousel';
+import { Modulo2Component } from './components/pages/modulo2/modulo2.component';
+import { NzAvatarModule } from 'ng-zorro-antd/avatar';
+import { NZ_I18N } from 'ng-zorro-antd/i18n';
+import { es_ES } from 'ng-zorro-antd/i18n';
+import { registerLocaleData } from '@angular/common';
+import es from '@angular/common/locales/es';
+import { NzCarouselModule } from 'ng-zorro-antd/carousel';
+import { LoginModulo2Component } from './components/pages/login-modulo2/login-modulo2.component';
+
+registerLocaleData(es);
 
 
 @NgModule({
@@ -41,6 +51,8 @@ import { CarouselModule } from 'primeng/carousel';
     CommissarsComponent,
     SportsComponent,
     ModalComponent,
+    Modulo2Component,
+    LoginModulo2Component,
   ],
   imports: [
     BrowserModule,
@@ -50,9 +62,11 @@ import { CarouselModule } from 'primeng/carousel';
     ReactiveFormsModule,
     DialogModule,
     FormsModule,
-    CarouselModule
+    CarouselModule,
+    NzAvatarModule,
+    NzCarouselModule
   ],
-  providers: [],
+  providers: [{ provide: NZ_I18N, useValue: es_ES }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

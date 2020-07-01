@@ -1,0 +1,43 @@
+.container-login{
+    background-image: url('/assets/img/modulo2/Enmascarargrupo 1.svg');
+    
+    input{
+        background-color: rgba($color: #000000, $alpha: 0);
+        border: 0; 
+        border-radius: 0;
+        border-bottom: solid 2px #FFFFFF;
+    }    
+    .password-div{
+        position: relative;
+        img{
+            position: absolute;
+            top: 5px;
+            left: 10px;
+        }
+        
+    }
+    input::placeholder{
+        color:white
+    }
+
+    button{
+        background-color: #005699;
+        z-index: 100;
+    }
+
+    .rec1{
+        background: transparent url('/assets/img/modulo2/Rectangulo39.png') 0% 0% no-repeat padding-box;
+        mix-blend-mode: multiply;
+        min-height: 12px;
+        margin-top: -4px;
+    }
+    .rec2{
+        background: transparent url('/assets/img/modulo2/Rectangulo40.png') 0% 0% no-repeat padding-box;
+        mix-blend-mode: multiply;
+        min-height: 12px;
+        margin-top: -4px;
+     }
+
+
+
+}

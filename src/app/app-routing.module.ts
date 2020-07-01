@@ -10,6 +10,8 @@ import { AreasComponent } from './components/pages/areas/areas.component';
 import { EquipmentComponent } from './components/pages/equipment/equipment.component';
 import { CommissarsComponent } from './components/pages/commissars/commissars.component';
 import { SportsComponent } from './components/pages/sports/sports.component';
+import { Modulo2Component } from './components/pages/modulo2/modulo2.component';
+import { LoginModulo2Component } from './components/pages/login-modulo2/login-modulo2.component';
 
 
 const routes: Routes = [
@@ -23,6 +25,8 @@ const routes: Routes = [
   { path: 'equipment', component: EquipmentComponent, pathMatch: 'full' },
   { path: 'commissars', component: CommissarsComponent, pathMatch: 'full' },
   { path: 'sports', component: SportsComponent, pathMatch: 'full' },
+  { path: 'modulo2', component: Modulo2Component, pathMatch: 'full' },
+  { path: 'login-modulo2', component: LoginModulo2Component, pathMatch: 'full' },
 ];
 
 @NgModule({
